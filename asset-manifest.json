@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ValidationTask/static/css/main.5f361e03.chunk.css",
+    "main.js": "/ValidationTask/static/js/main.0dfecebc.chunk.js",
+    "main.js.map": "/ValidationTask/static/js/main.0dfecebc.chunk.js.map",
+    "runtime-main.js": "/ValidationTask/static/js/runtime-main.ccd1f3c7.js",
+    "runtime-main.js.map": "/ValidationTask/static/js/runtime-main.ccd1f3c7.js.map",
+    "static/js/2.6a256c94.chunk.js": "/ValidationTask/static/js/2.6a256c94.chunk.js",
+    "static/js/2.6a256c94.chunk.js.map": "/ValidationTask/static/js/2.6a256c94.chunk.js.map",
+    "index.html": "/ValidationTask/index.html",
+    "precache-manifest.d8730be76b9c434d71cf32f7e4b73456.js": "/ValidationTask/precache-manifest.d8730be76b9c434d71cf32f7e4b73456.js",
+    "service-worker.js": "/ValidationTask/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/ValidationTask/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.6a256c94.chunk.js.LICENSE.txt": "/ValidationTask/static/js/2.6a256c94.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ccd1f3c7.js",
+    "static/js/2.6a256c94.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.0dfecebc.chunk.js"
+  ]
+}
