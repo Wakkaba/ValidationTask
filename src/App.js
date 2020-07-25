@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import { MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
+import Validation from "./component/Validation";
 import './App.css';
 
-function App() {
+
+const theme = createMuiTheme({
+    /* theme for v1.x */
+    palette: {
+        main: '#ff4400'
+    },
+    typography: {
+        // In Chinese and Japanese the characters are usually larger,
+        // so a smaller fontsize may be appropriate.
+        fontSize: 12,
+    },
+
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <MuiThemeProvider theme={theme} >
+      <div className="App">
+        <Validation/>
+      </div>
+      </MuiThemeProvider>
   );
 }
+
 
 export default App;
