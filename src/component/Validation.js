@@ -97,7 +97,7 @@ class UserDetail extends Component {
                             label="Password"
                             onChange={this.handleChange}
                             name="password"
-                            // type="password"
+                            type="password"
                             validators={['Passer', 'required']}
                             errorMessages={['Too weak password, sry :(', 'this field is required']}
                             value={formData.password}
@@ -107,7 +107,7 @@ class UserDetail extends Component {
                             label="Repeat password"
                             onChange={this.handleChange}
                             name="repeatPassword"
-                            // type="password"
+                            type="password"
                             validators={['isPasswordMatch',  'required']}
                             errorMessages={['password mismatch', 'this field is required']}
                             value={formData.repeatPassword}
