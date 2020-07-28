@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 
-let UserDetail = () => {
+const UserDetail = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
