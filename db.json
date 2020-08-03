@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Mael",
+      "lastName": "Johnson",
+      "email": "mg@mg.com"
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "art",
+      "password": "",
+      "repeatPass": "",
+      "id": 2
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "art",
+      "password": "",
+      "repeatPass": "",
+      "id": 3
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "sss",
+      "password": "",
+      "repeatPass": "",
+      "id": 4
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "arte",
+      "password": "",
+      "repeatPass": "",
+      "id": 5
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "artesz",
+      "password": "",
+      "repeatPass": "",
+      "id": 6
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "artzzzz",
+      "password": "",
+      "repeatPass": "",
+      "id": 7
+    }
+  ]
+}
