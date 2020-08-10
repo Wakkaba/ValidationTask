@@ -1,11 +1,12 @@
 import React from "react";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import Validation from "./component/Validation";
+import Validation from "./component/container/SignUpContainer";
 import "./App.css";
 import DataFetching from "./component/DataFetching";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "./data/redux /Store";
 
 const theme = createMuiTheme({
-  /* theme for v1.x */
   palette: {
     main: "#ff4400",
   },
@@ -15,19 +16,15 @@ const theme = createMuiTheme({
 });
 
 const App = () => {
-  // let getUserInfo = (e) => {
-  //     e.preventDefault();
-  //     const user = e.target.elements.firstName.value
-  //     console.log(user);
-  // }
   return (
-    <MuiThemeProvider theme={theme}>
-      <div className="App">
-        {/*<Validation getUserInfo={getUserInfo}/>*/}
-        <Validation />
-        <DataFetching />
-      </div>
-    </MuiThemeProvider>
+    <ReduxProvider store={store}>
+      <MuiThemeProvider theme={theme}>
+        <div className="App">
+          <Validation />
+          <DataFetching />
+        </div>
+      </MuiThemeProvider>
+    </ReduxProvider>
   );
 };
 
