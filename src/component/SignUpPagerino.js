@@ -5,22 +5,23 @@ import Typography from "@material-ui/core/Typography";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Alert } from "@material-ui/lab";
 import { Container } from "@material-ui/core";
-import axios from "axios";
+import UsersGET from "../data/api/UsersApi";
+import UsersPOST from "../data/api/PostApi";
 
-const UserDetail = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    repeatPass: "",
-  });
+// GET API
+// new refactor api calls, get and post as in lecture example
+const Users_API = new UsersGET();
+// // POST API
+const Post_API = new UsersPOST();
+
+const UserDetail = (props) => {
+
   const [errMsg, setErrMsg] = useState(null);
   const [succs, setSuccs] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   useEffect(() => {
     ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
-      if (value !== formData.password) {
+      if (value !== props.password) {
         return false;
       }
       return true;
@@ -35,11 +36,32 @@ const UserDetail = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(props.setEmail);
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    switch (name) {
+      case "firstName":
+        props.setFirstName(value);
+        break;
+
+      case "lastName":
+        props.setLastName(value);
+        break;
+
+      case "email":
+        props.setEmail(value);
+        break;
+
+      case "password":
+        props.setPassword(value);
+        break;
+
+      case "repeatPass":
+        props.setRepeatPass(value);
+        break;
+
+      default:
+        console.log("Sorry, we have some troubles");
+    }
   };
 
   const handleSubmit = (e) => {
@@ -48,18 +70,18 @@ const UserDetail = () => {
     submitted ? setSubmitted(false) : setSubmitted(true);
     setTimeout(() => setSubmitted(setSubmitted(false)), 1000);
 
-    const userInfo = { ...formData };
     setErrMsg(null);
     setSuccs(null);
-    axios.get(`http://localhost:3001/users`).then((res) => {
+    Users_API.getUsers().then((res) => {
       console.log(res.data);
 
       const users = res.data;
-      if (users.some((u) => u.email === userInfo.email)) {
+      if (users.some((u) => u.email === props.email)) {
         setErrMsg("Sorry,such user already exists");
       } else {
-        axios
-          .post(`http://localhost:3001/users`, userInfo)
+        Post_API.postUsers(props)
+          // Post_API.postUsers(userInfo)
+
           .then((res) => {
             setSuccs(true);
             console.log(res);
@@ -83,7 +105,8 @@ const UserDetail = () => {
           label="Name"
           onChange={handleChange}
           name="firstName"
-          value={formData.firstName}
+          // value={formData.firstName}
+          value={props.firstName}
           validators={["required"]}
           errorMessages={["this field is required", "field can not be empty!"]}
         />
@@ -92,7 +115,7 @@ const UserDetail = () => {
           label="Surname"
           onChange={handleChange}
           name="lastName"
-          value={formData.lastName}
+          value={props.lastName}
           validators={["required"]}
           errorMessages={["this field is required", "field can not be empty!"]}
         />
@@ -101,7 +124,7 @@ const UserDetail = () => {
           label="Email"
           onChange={handleChange}
           name="email"
-          value={formData.email}
+          value={props.email}
           validators={["required", "isEmail"]}
           errorMessages={["this field is required", "email is not valid"]}
         />
@@ -127,7 +150,7 @@ const UserDetail = () => {
             "Too weak password, sry :(",
             "this field is required",
           ]}
-          value={formData.password}
+          value={props.password}
         />
         <br />
         <TextValidator
@@ -137,7 +160,7 @@ const UserDetail = () => {
           type="password"
           validators={["isPasswordMatch", "required"]}
           errorMessages={["password mismatch", "this field is required"]}
-          value={formData.repeatPass}
+          value={props.repeatPass}
         />
         <br />
         <br />

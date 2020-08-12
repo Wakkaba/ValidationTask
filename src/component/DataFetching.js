@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Typography } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+import UsersGET from "../data/api/UsersApi";
+
+const Users_API = new UsersGET()
 
 const DataFetching = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/users")
+      Users_API.getUsers()
       .then((res) => {
         console.log(res);
         setUsers(res.data);
