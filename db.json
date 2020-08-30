@@ -91,6 +91,22 @@
       "password": "12345678Aa*",
       "repeatPass": "12345678Aa*",
       "id": 12
+    },
+    {
+      "email": "a@ssa.com",
+      "firstName": "chik",
+      "lastName": "pik",
+      "password": "12345678Aa*",
+      "repeatPass": "12345678Aa*",
+      "id": 13
+    },
+    {
+      "email": "фывафы",
+      "firstName": "",
+      "lastName": "",
+      "password": "фыаф",
+      "repeatPass": "афы",
+      "id": 14
     }
   ]
 }
