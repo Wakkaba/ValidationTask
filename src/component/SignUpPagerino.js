@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -7,6 +6,7 @@ import { Alert } from "@material-ui/lab";
 import { Container } from "@material-ui/core";
 import UsersGET from "../data/api/UsersApi";
 import UsersPOST from "../data/api/PostApi";
+import { useHistory } from "react-router-dom";
 
 // GET API
 // new refactor api calls, get and post as in lecture example
@@ -15,10 +15,10 @@ const Users_API = new UsersGET();
 const Post_API = new UsersPOST();
 
 const UserDetail = (props) => {
-
   const [errMsg, setErrMsg] = useState(null);
   const [succs, setSuccs] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const history = useHistory();
   useEffect(() => {
     ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
       if (value !== props.password) {
@@ -80,7 +80,6 @@ const UserDetail = (props) => {
         setErrMsg("Sorry,such user already exists");
       } else {
         Post_API.postUsers(props)
-          // Post_API.postUsers(userInfo)
 
           .then((res) => {
             setSuccs(true);
@@ -95,17 +94,14 @@ const UserDetail = (props) => {
   };
 
   return (
-    <React.Fragment>
-      <AppBar position="static">
-        <Typography variant="h2">Sign up, dude</Typography>
-      </AppBar>
+    <div className="App">
       <ValidatorForm onSubmit={handleSubmit}>
-        <Typography variant="h3">Enter your info</Typography>
+        <br />
+        <Typography variant="h6">Enter your info</Typography>
         <TextValidator
           label="Name"
           onChange={handleChange}
           name="firstName"
-          // value={formData.firstName}
           value={props.firstName}
           validators={["required"]}
           errorMessages={["this field is required", "field can not be empty!"]}
@@ -174,7 +170,7 @@ const UserDetail = (props) => {
           {(submitted && "Signed up!") || (!submitted && "Submit")}
         </Button>
       </ValidatorForm>
-    </React.Fragment>
+    </div>
   );
 };
 
