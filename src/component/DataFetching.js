@@ -3,13 +3,13 @@ import { Typography } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import UsersGET from "../data/api/UsersApi";
 
-const Users_API = new UsersGET()
+const Users_API = new UsersGET();
 
 const DataFetching = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-      Users_API.getUsers()
+    Users_API.getUsers()
       .then((res) => {
         console.log(res);
         setUsers(res.data);

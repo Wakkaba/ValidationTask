@@ -91,6 +91,50 @@
       "password": "12345678Aa*",
       "repeatPass": "12345678Aa*",
       "id": 12
+    },
+    {
+      "email": "a@ssa.com",
+      "firstName": "chik",
+      "lastName": "pik",
+      "password": "12345678Aa*",
+      "repeatPass": "12345678Aa*",
+      "id": 13
+    },
+    {
+      "email": "фывафы",
+      "firstName": "",
+      "lastName": "",
+      "password": "фыаф",
+      "repeatPass": "афы",
+      "id": 14
+    },
+    {
+      "history": {
+        "length": 2,
+        "action": "POP",
+        "location": {
+          "pathname": "/",
+          "search": "",
+          "hash": ""
+        }
+      },
+      "location": {
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "match": {
+        "path": "/",
+        "url": "/",
+        "isExact": true,
+        "params": {}
+      },
+      "email": "фі@asd",
+      "firstName": "Капа",
+      "lastName": "",
+      "password": "",
+      "repeatPass": "",
+      "id": 15
     }
   ]
 }
